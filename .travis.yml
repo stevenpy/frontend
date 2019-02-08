@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t stevenpy/frontend -f Dockerfile.dev .
+
+script:
+  - docker run stevenpy/frontend npm run test -- --coverage
